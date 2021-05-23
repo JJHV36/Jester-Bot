@@ -31,4 +31,4 @@ async def on_message(message):
         rand = random.randint(0,5)
         await message.channel.send(randomIntro(rand))
 
-client.run('ODQ0MzA3Mzc1ODU0MDU5NTMw.YKQghA._Jj5J4gPrK-kTHSfHeSd1kNXmqA')       #Runs the bot with the specified token
+client.run('#TOKEN!')       #Runs the bot with the specified token
