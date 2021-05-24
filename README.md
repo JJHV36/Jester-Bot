@@ -11,9 +11,13 @@ The joke command, $joke, can be called by itself or putting something afterwards
 The filter command, $filter, will keep all of its jokes within a certain margin. Jester will update you on what filters are on or off!
 To turn on a specific filter, put in the filter name after the command and it will update. Jester can only handle one filter at a time!
 Current filters include: not safe for work (nsfw), religious, political, racist, and sexist
+NOTE: racist and sexist filters automatically are on because it is 2021 and jokes can get people canceled
 
 # To Do List
 Function to be added: If Jester is running and it has not been pinged within 3 days, it will automatically post the fitness gram pacer test. (Why? Because he refuses to let that joke die!)
+Need to handle spam messaging
+Function to be added: Jester should be able to take and keep jokes that other users tell it about
+Need to figure out how to post token without bot security in risk
 If any ideas come to mind, I will update this list!
 
 # Credit
