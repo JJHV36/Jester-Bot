@@ -1,8 +1,7 @@
 import discord  #imports discord library
 import random
-import requests
-from jokeapi import Jokes
 
+from jokeapi import Jokes       #Creating from the JokeAPI Python Wrapper
 response = Jokes()
 blacklisted = ['sexist', 'racist']
 joke = response.get_joke(blacklist=blacklisted, response_format="txt")
@@ -44,7 +43,7 @@ async def on_message(message):
         rand = random.randint(0,10)
         await message.channel.send(randomIntro(rand))
 
-    if message.content.lower().startswith('$joke'):
+    if message.content.lower().startswith('$joke'):     #Will tell joke either randomly or by whatever is asked after keyword based on filters
         search = message.content.lower()
         if len(search) > 5:
             specificJoke = search[6:]
@@ -53,9 +52,9 @@ async def on_message(message):
             joke = response.get_joke(blacklist=blacklisted, response_format="txt")
         await message.channel.send(joke)
 
-    if message.content.lower().startswith('$filter'):
+    if message.content.lower().startswith('$filter'):       #Start of filtering branch
         command = message.content.lower()
-        filter = {
+        filter = {      #dictionary made up of the filters to see which are on and off
             'nsfw': True,
             'religious': True,
             'political': True,
@@ -63,10 +62,10 @@ async def on_message(message):
             'sexist': False
         }
         try:
-            keyword = command[8:]
+            keyword = command[8:]       #Checking to see if keyword after filter is in the filter dictionary. If not, it will prompt with better instructions
             if keyword in filter:
                 filter[keyword] = not filter[keyword]
-                await message.channel.send("Alright, I'm updating my jokebook! So, my jokes can now be:")
+                await message.channel.send("Alright, I'm updating my jokebook! So, my jokes can now be:")       #Making updates to its filters and letting you know which are on and off
                 if(filter['nsfw']):
                     await message.channel.send('Not safe for work ( ͡° ͜ʖ ͡°)')
                     if 'nsfw' in blacklisted:
@@ -114,4 +113,4 @@ async def on_message(message):
 
 
 
-client.run('ODQ0MzA3Mzc1ODU0MDU5NTMw.YKQghA.luzUVMfYl76QUmekT4umiTa20r8')       #Runs the bot with the specified token
+client.run('TOKEN!')       #Runs the bot with the specified token
