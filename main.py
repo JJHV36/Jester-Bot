@@ -4,6 +4,13 @@ import random
 from jokeapi import Jokes       #Creating from the JokeAPI Python Wrapper
 response = Jokes()
 blacklisted = ['sexist', 'racist']
+filter = {      #dictionary made up of the filters to see which are on and off
+            'nsfw': True,
+            'religious': True,
+            'political': True,
+            'racist': False,
+            'sexist': False
+        }
 joke = response.get_joke(blacklist=blacklisted, response_format="txt")
 
 def randomIntro(number):        #Function that will go through and return one entry from the dictionary made up of random rude introductions
@@ -54,13 +61,7 @@ async def on_message(message):
 
     if message.content.lower().startswith('$filter'):       #Start of filtering branch
         command = message.content.lower()
-        filter = {      #dictionary made up of the filters to see which are on and off
-            'nsfw': True,
-            'religious': True,
-            'political': True,
-            'racist': False,
-            'sexist': False
-        }
+        global filter
         try:
             keyword = command[8:]       #Checking to see if keyword after filter is in the filter dictionary. If not, it will prompt with better instructions
             if keyword in filter:
@@ -113,4 +114,4 @@ async def on_message(message):
 
 
 
-client.run('TOKEN!')       #Runs the bot with the specified token
+client.run('!TOKEN')       #Runs the bot with the specified token
