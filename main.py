@@ -1,5 +1,6 @@
 import discord  #imports discord library
 import random
+from jokeapi import Jokes
 
 def randomIntro(number):        #Function that will go through and return one entry from the dictionary made up of random rude introductions
     case = {
